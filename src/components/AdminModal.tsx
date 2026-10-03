@@ -392,7 +392,7 @@ export const AdminModal: React.FC = () => {
 
         {/* Not Logged In View - Real Username & Password Login */}
         {!isAdmin ? (
-          <div className="p-6 sm:p-10 text-center max-w-md mx-auto space-y-5 my-auto w-full">
+          <div className="overflow-y-auto flex-1 p-6 sm:p-10 text-center max-w-md mx-auto space-y-5 my-auto w-full">
             <div className="w-14 h-14 rounded-full bg-[#651F32]/10 text-[#651F32] flex items-center justify-center mx-auto border border-[#C9A96E]/40">
               <Lock className="w-6 h-6" />
             </div>
@@ -401,18 +401,15 @@ export const AdminModal: React.FC = () => {
               <span className="text-[11px] uppercase tracking-widest text-[#C9A96E] font-semibold block mb-1">
                 Authorized Access
               </span>
-              <h4 className="font-serif text-2xl text-[#2B211E] font-medium">
+              <h4 className="font-serif text-2xl text-[#2B211E] dark:text-[#F7EFE8] font-medium">
                 Admin Login
               </h4>
-              <p className="font-serif text-sm text-[#651F32] font-semibold mt-0.5">
+              <p className="font-serif text-sm text-[#651F32] dark:text-[#DEC596] font-semibold mt-0.5">
                 Fairytale Chunri Closet
               </p>
-              <p className="text-xs text-[#6B5B53] dark:text-[#C9A96E] mt-2">
-                Enter your admin credentials to manage clothing catalog, prices, and inventory.
+              <p className="text-xs text-[#6B5B53] dark:text-[#D8C7B5] mt-2">
+                Enter your secure admin credentials to manage clothing catalog, prices, and inventory.
               </p>
-              <div className="mt-2 p-2 bg-[#FAF7F2] dark:bg-[#261D1F] border border-[#E2D7C8] dark:border-[#3D2E32] rounded text-[11px] text-[#651F32] dark:text-[#DEC596] font-medium">
-                💡 Demo Credentials — Username: <strong className="font-semibold">yasirFarooq</strong> | Password: <strong className="font-semibold">yasir6466</strong>
-              </div>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4 text-left">
@@ -427,7 +424,7 @@ export const AdminModal: React.FC = () => {
                     setUsername(e.target.value);
                     setLoginError(null);
                   }}
-                  placeholder="yasirFarooq"
+                  placeholder="Enter admin username"
                   className={`w-full px-3.5 py-2.5 rounded-md text-sm border focus:outline-hidden transition-colors ${
                     isDark
                       ? 'bg-[#1D1718] border-[#3D2E32] text-white focus:border-[#C9A96E]'
@@ -449,7 +446,7 @@ export const AdminModal: React.FC = () => {
                     setPassword(e.target.value);
                     setLoginError(null);
                   }}
-                  placeholder="yasir6466"
+                  placeholder="Enter password"
                   className={`w-full px-3.5 py-2.5 rounded-md text-sm border focus:outline-hidden transition-colors ${
                     isDark
                       ? 'bg-[#1D1718] border-[#3D2E32] text-white focus:border-[#C9A96E]'

@@ -286,8 +286,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     price: 3800,
     description:
       'Timeless Bahawalpur tie-dye chunri dupatta with ruby crimson red body, bold black side panels, and intricate white hand-knotted bandhani rings. Hand-fringed pallu borders.',
-    image: '/images/cat_chunri_dupattas_1790695254180.jpg',
-    images: ['/images/cat_chunri_dupattas_1790695254180.jpg'],
+    image: '/images/real_maroon_gold_chunri_1790696956750.jpg',
+    images: ['/images/real_maroon_gold_chunri_1790696956750.jpg'],
     colors: ['Crimson Red', 'Jet Black'],
     sizes: ['Standard 2.75 Yards'],
     available: true,
@@ -304,8 +304,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     price: 4400,
     description:
       'Exquisite 3-tone Chunri dupatta with royal blue field, hot pink border, and antique olive green finish. Adorned with delicate handcrafted gota triangles along all four sides.',
-    image: '/images/hero_chunri_collection_1790695232484.jpg',
-    images: ['/images/hero_chunri_collection_1790695232484.jpg'],
+    image: '/images/real_teal_navy_chunri_1790696986179.jpg',
+    images: ['/images/real_teal_navy_chunri_1790696986179.jpg'],
     colors: ['Royal Blue', 'Hot Pink', 'Olive Green'],
     sizes: ['Standard 2.5 Yards'],
     available: true,
@@ -322,8 +322,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     price: 3900,
     description:
       'Ready-to-wear tailored A-line silhouette with delicate round neckline, finished with contrast chunri sleeves and fine hand-stitched hem borders. Comfortable relaxed cut.',
-    image: '/images/cat_ready_to_wear_1790695284384.jpg',
-    images: ['/images/cat_ready_to_wear_1790695284384.jpg'],
+    image: '/images/real_fuchsia_lime_chunri_1790700363022.jpg',
+    images: ['/images/real_fuchsia_lime_chunri_1790700363022.jpg'],
     colors: ['Mustard Ochre', 'Coral Pink'],
     sizes: ['Small', 'Medium', 'Large'],
     available: true,
