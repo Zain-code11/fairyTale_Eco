@@ -1,0 +1,8 @@
+{
+  "name": "Fairytale Chunri Closet",
+  "description": "Explore beautiful chunri and traditional clothing from Fairytale Chunri Closet in Bahawalpur. Browse our collection and contact us directly on WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
