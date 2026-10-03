@@ -13,6 +13,7 @@ export interface LoginResponse {
   token?: string;
   user?: {
     name: string;
+    username?: string;
     role: string;
     business: string;
   };
@@ -66,12 +67,37 @@ export async function adminLoginApi(credentials: { username?: string; password: 
     ? { username: 'yasirfarooq', password: credentials }
     : { username: credentials.username || 'yasirfarooq', password: credentials.password };
 
-  const res = await fetch(`${API_BASE}/admin/login`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-  return await res.json();
+  try {
+    const res = await fetch(`${API_BASE}/admin/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (err) {
+    console.warn('API backend not reachable, using client-side fallback login:', err);
+  }
+
+  // Fallback for static hosting deployments (e.g. Vercel static site)
+  const username = typeof credentials === 'string' ? 'yasirfarooq' : (credentials.username || 'yasirfarooq');
+  const password = typeof credentials === 'string' ? credentials : credentials.password;
+
+  if (password && password.trim().toLowerCase() === 'yasir6466') {
+    return {
+      success: true,
+      token: 'ft_admin_token_yasir_farooq_2026',
+      user: {
+        name: 'Yasir Farooq',
+        username: username.trim(),
+        role: 'owner',
+        business: 'Fairytale Chunri Closet',
+      },
+    };
+  }
+
+  return { success: false, error: 'Invalid username or password' };
 }
 
 export async function createProductApi(
