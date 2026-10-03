@@ -63,27 +63,10 @@ export async function fetchProductByIdApi(id: string): Promise<Product> {
 }
 
 export async function adminLoginApi(credentials: { username?: string; password: string } | string): Promise<LoginResponse> {
-  const payload = typeof credentials === 'string'
-    ? { username: 'yasirfarooq', password: credentials }
-    : { username: credentials.username || 'yasirfarooq', password: credentials.password };
-
-  try {
-    const res = await fetch(`${API_BASE}/admin/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch (err) {
-    console.warn('API backend not reachable, using client-side fallback login:', err);
-  }
-
-  // Fallback for static hosting deployments (e.g. Vercel static site)
   const username = typeof credentials === 'string' ? 'yasirfarooq' : (credentials.username || 'yasirfarooq');
   const password = typeof credentials === 'string' ? credentials : credentials.password;
 
+  // Client-side authentication check for bulletproof success on Vercel static hosting
   if (password && password.trim().toLowerCase() === 'yasir6466') {
     return {
       success: true,
@@ -95,6 +78,20 @@ export async function adminLoginApi(credentials: { username?: string; password: 
         business: 'Fairytale Chunri Closet',
       },
     };
+  }
+
+  try {
+    const payload = { username, password };
+    const res = await fetch(`${API_BASE}/admin/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (err) {
+    console.warn('API backend not reachable, fallback failed:', err);
   }
 
   return { success: false, error: 'Invalid username or password' };
